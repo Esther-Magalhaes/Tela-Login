@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+:root {
+  @include mat.button-overrides((
+    filled-label-text-color: green, // texto do botão
+    filled-hover-state-layer-opacity: 0.1, // camada de hover
+    filled-ripple-color: green, // ripple
+  ));
+}
+
+@include mat.form-field-overrides((
+  outlined-focus-outline-color: #208538,
+  outlined-outline-color: #aaa,
+  outlined-focus-outline-width: 2px,
+  outlined-focus-label-text-color: #208538
+));
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
