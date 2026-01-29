@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'; 
+import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'; // Importe o ReactiveFormsModule
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '../../services/auth.service';
-
 @Component({
-  selector: 'app-login',
+  selector: 'app-login-c1',
   standalone: true,
   imports: [
     CommonModule,
@@ -16,10 +15,10 @@ import { AuthService } from '../../services/auth.service';
     MatInputModule,
     MatCardModule
   ],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login-c1.component.html',
+  styleUrl: './login-c1.component.scss'
 })
-export class LoginComponent {
+export class LoginC1Component {
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),

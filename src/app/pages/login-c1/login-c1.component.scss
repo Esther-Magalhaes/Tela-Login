@@ -64,22 +64,11 @@
   justify-content: center;
   align-items: center;
 
-
-
 }
 
-  // ESTADO DESATIVADO
-  .button.botao-desativado {
-    background-color: #cccccc !important; // Cinza
-    color: #666666;
-    cursor: not-allowed; // Mouse de "proibido"
-    pointer-events: none; // Impede o clique físico na DIV
-    box-shadow: none;
-  }
-
 input[type="checkbox"] {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   appearance: none;  
   border: 2px solid #333;  
   border-radius: 2px;  
@@ -94,11 +83,11 @@ input[type="checkbox"]:checked {
 }
 
 input[type="checkbox"]:checked::before {
-  // content: '\2714'; 
+  content: '\2714'; 
   font-size: 16px;
   color: white;
   position: absolute;
-  left: 2px;
+  bottom: -5px;
 }
 
 
@@ -117,3 +106,7 @@ input[type="checkbox"]:checked::before {
   color: #fff;
 }
 
+button {
+    outline: none;
+    border: none;
+}
