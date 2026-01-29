@@ -1,34 +1,44 @@
 <div class="login-wrapper">
   <!-- LADO DA IMAGEM -->
-
-    <img
+  <img
     src="https://img.freepik.com/fotos-gratis/vacas-pastando-na-natureza_23-2150454976.jpg"
-    alt="Ilustração de login"
+    alt="foto-login"
   />
-
 
   <!-- LADO DO LOGIN -->
   <div class="login-form">
-    <mat-card class="login-card">
-      <h2>Entrar</h2>
+    <mat-card class="login-card"  [formGroup]="loginForm">
+      <p>Entrar</p>
 
+      <!-- Email -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Email</mat-label>
-        <input matInput type="email">
+        <input matInput type="email" placeholder="Email" formControlName="email"> 
       </mat-form-field>
 
+      <!-- Senha -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Senha</mat-label>
-        <input matInput type="password">
+        <input matInput type="password" placeholder="Senha" formControlName="senha">
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="full-width">
+      <!-- Botão de entrar -->
+      <div class="button" (click)="login()">
         Entrar
-      </button>
+      </div>
+
+      <!-- Botão de checkbox/marcar -->
+      <div class="checkbox-container">
+        <input type="checkbox"> 
+        <span>Manter-me conectado</span>
+      </div>
+
     </mat-card>
   </div>
 </div>
 
-<footer class="app-footer">
-  <p>© 2026 - Todos os direitos reservados.</p>
-</footer>
+<div class="app-footer">
+  <p>© 2026 - Todos os direitos 
+    <a href="https://sidagro-dev.dac.ufla.br/home" target="_blank">reservados</a>.
+  </p>
+</div>

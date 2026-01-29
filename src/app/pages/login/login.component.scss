@@ -14,8 +14,8 @@
 .login-wrapper img {
   height: 400px;
   border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-
 
 .login-card {
   width: 350px;
@@ -23,6 +23,13 @@
   padding: 24px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card p {
+  font-size: 20px;
 }
 
 .full-width {
@@ -41,3 +48,61 @@
   bottom: 0;
   left: 0;
 }
+
+.button:hover {
+  background-color: #1d5c2c;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #208538;
+  color: white;
+  border-radius: 5px;
+  width: 80%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+input[type="checkbox"] {
+  width: 10px;
+  height: 10px;
+  appearance: none;  
+  border: 2px solid #333;  
+  border-radius: 2px;  
+  cursor: pointer;
+  position: relative;
+}
+
+
+input[type="checkbox"]:checked {
+  background-color: #208538; 
+  border-color: #208538;
+}
+
+input[type="checkbox"]:checked::before {
+  // content: '\2714'; 
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  left: 2px;
+}
+
+
+.checkbox-container {
+  display: flex;
+  align-items: center;  
+  padding-top: 15px;
+}
+
+.checkbox-container span {
+  font-size: 16px;
+}
+
+::selection {
+  background-color: #7ec68f;
+  color: #fff;
+}
+
