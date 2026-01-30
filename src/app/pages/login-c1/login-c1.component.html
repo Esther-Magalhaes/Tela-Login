@@ -9,7 +9,7 @@
     <mat-card class="login-card">
       <h1>Entrar</h1>
 
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
         
         <!-- Email -->
         <mat-form-field appearance="outline" class="full-width" for="emailInput">
@@ -34,10 +34,22 @@
             formControlName="password">
         </mat-form-field>
 
+        <div *ngIf="erro" class="input-error">
+          <span class="error-icon">&#9432;</span> {{ erro }}
+        </div>
+
        <!-- Botão de entrar -->
-       <button class="button" type="submit" (click)="login()" [disabled]="loginForm.invalid">
-         Entrar
-       </button>
+      <button 
+        class="button" 
+        [ngClass]="{'disabled-look': loginForm.invalid}" 
+        [attr.aria-disabled]="loginForm.invalid"
+        (click)="login()"
+        (keydown.space)="$event.preventDefault()"
+        (keydown.enter)="$event.preventDefault()"
+      >
+        Entrar
+      </button>
+
 
 
        <!-- Botão de checkbox/marcar -->
@@ -56,5 +68,3 @@
     <a href="https://sidagro-dev.dac.ufla.br/home" target="_blank">reservados</a>.
   </p>
 </footer>
-
-

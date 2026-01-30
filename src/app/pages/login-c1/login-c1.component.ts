@@ -22,6 +22,8 @@ import { Router } from '@angular/router';
 })
 export class LoginC1Component {
 
+  erro: string = '';
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
@@ -45,7 +47,7 @@ login() {
       if (success) {
         this.router.navigate(['/pagina-inicial']);
       } else {
-        alert('E-mail ou senha incorretos!');
+        this.erro = 'E-mail ou senha incorretos!';
       }
     } else {
       // Caso o usuário tente clicar sem preencher nada

@@ -30,6 +30,11 @@
             formControlName="password">
         </mat-form-field>
 
+        <div *ngIf="erro" class="input-error">
+          <span class="error-icon">&#9432;</span> {{ erro }}
+        </div>
+
+
        <!-- Botão de entrar -->
        <div class="button" (click)="login()" [class.botao-desativado]="loginForm.invalid">
          Entrar

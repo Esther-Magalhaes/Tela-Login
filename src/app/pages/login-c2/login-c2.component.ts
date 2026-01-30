@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'; // Importe o ReactiveFormsModule
+import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'; // Importe o ReactiveFormsModule
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '../../services/auth.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-c2',
@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule, // Adicione aqui
+    ReactiveFormsModule, 
     MatInputModule,
     MatCardModule
   ],
@@ -21,17 +21,38 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login-c2.component.scss'
 })
 export class LoginC2Component {
-  email = '';
-  password = '';
+  
+  erro: string = '';
 
-  constructor(private authService: AuthService) {}
 
-  login() {
-    const success = this.authService.login(this.email, this.password);
-    if (success) {
-      alert('sucesso');
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
+
+
+  constructor(
+  private authService: AuthService,
+  private router: Router
+) {}
+
+login() {
+    // 1. Verifica se o formulário está preenchido corretamente
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+
+      // 2. Chama o serviço e guarda o resultado (true ou false)
+      const success = this.authService.login(email!, password!);
+
+      // 3. Lógica do alerta
+      if (success) {
+        this.router.navigate(['/pagina-inicial']);
+      } else {
+        this.erro = 'E-mail ou senha incorretos!';
+      }
     } else {
-      alert('Usuário ou senha incorretos!');
+      // Caso o usuário tente clicar sem preencher nada
+      alert('Por favor, preencha os campos do formulário');
     }
   }
 }

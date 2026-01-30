@@ -1,1 +1,72 @@
-<p>login-c2 works!</p>
+<div class="login-wrapper">
+  <!-- LADO DA IMAGEM -->
+  <aside class="image-side">
+    <img src="https://img.freepik.com/fotos-gratis/vacas-pastando-na-natureza_23-2150454976.jpg" alt="Foto de várias vacas pastando em um campo verde, ao ar livre, durante o dia. Os animais estão espalhados pelo pasto, com árvores e uma cerca ao fundo, sob um céu nublado, transmitindo um clima rural e tranquilo.">
+  </aside>
+
+  <!-- LADO DO LOGIN -->
+  <div class="login-form">
+    <mat-card class="login-card">
+      <h1>Entrar</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+        
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width" for="emailInput">
+          <mat-label>Email</mat-label>
+          <input 
+            matInput 
+            id="emailInput"
+            type="email" 
+            required 
+            email
+            formControlName="email">
+        </mat-form-field>
+
+        <!-- Senha -->
+        <mat-form-field appearance="outline" class="full-width" for="passwordInput">
+          <mat-label>Senha</mat-label>
+          <input 
+            matInput 
+            id="passwordInput"
+            type="password" 
+            required
+            formControlName="password">
+        </mat-form-field>
+
+        <div *ngIf="erro" class="input-error">
+          <span class="error-icon">&#9432;</span> {{ erro }}
+        </div>
+
+       <!-- Botão de entrar -->
+      <button 
+        class="button" 
+        [ngClass]="{'disabled-look': loginForm.invalid}" 
+        [attr.aria-disabled]="loginForm.invalid"
+        (click)="login()"
+        (keydown.space)="$event.preventDefault()"
+        (keydown.enter)="$event.preventDefault()"
+      >
+        Entrar
+      </button>
+
+
+
+       <!-- Botão de checkbox/marcar -->
+        <div class="checkbox-container">
+          <input type="checkbox" id="manterConectado" name="manterConectado"> 
+          <label for="manterConectado">Manter-me conectado</label>
+        </div>
+
+      </form>
+    </mat-card>
+  </div>
+</div>
+
+<footer class="app-footer">
+  <p>© 2026 - Todos os direitos 
+    <a href="https://sidagro-dev.dac.ufla.br/home" target="_blank">reservados</a>.
+  </p>
+</footer>
+
+

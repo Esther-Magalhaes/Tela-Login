@@ -71,7 +71,17 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
+  border: none;
+}
 
+.button.disabled-look {
+    background-color: #cccccc !important; // Cinza
+    color: #666666;
+    cursor: not-allowed; // Mouse de "proibido"
+    pointer-events: none; // Impede o clique físico na DIV
+    user-select: none;
+    box-shadow: none;
 }
 
 input[type="checkbox"] {
@@ -114,8 +124,16 @@ input[type="checkbox"]:checked::before {
   color: #fff;
 }
 
-button {
-    outline: none;
-    border: none;
-    font-size: 16px;
+.input-error {
+  color: #ba1a1a; // vermelho
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  bottom: 30%;  
+  .error-icon {
+    margin-right: 6px;
+  }
 }

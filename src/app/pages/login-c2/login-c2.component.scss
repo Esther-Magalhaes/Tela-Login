@@ -1,0 +1,139 @@
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #c4e1e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  background: linear-gradient(to bottom, #208538 50%, #f5f5f5 50%);
+}
+
+.login-wrapper img {
+  height: 400px;
+  border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.login-card {
+  width: 350px;
+  height: 400px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  h1 {
+      font-size: 20px;
+      font-weight: normal;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.app-footer {
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #f5f5f5; 
+  color: #555;
+  font-size: 14px;
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+}
+
+.button:hover {
+  background-color: #1d5c2c;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #208538;
+  color: white;
+  border-radius: 5px;
+  width: 80%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: none;
+}
+
+.button.disabled-look {
+    background-color: #cccccc !important; // Cinza
+    color: #666666;
+    cursor: not-allowed; // Mouse de "proibido"
+    pointer-events: none; // Impede o clique físico na DIV
+    user-select: none;
+    box-shadow: none;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  appearance: none;  
+  border: 2px solid #333;  
+  border-radius: 2px;  
+  cursor: pointer;
+  position: relative;
+}
+
+
+input[type="checkbox"]:checked {
+  background-color: #208538; 
+  border-color: #208538;
+}
+
+input[type="checkbox"]:checked::before {
+  content: '\2714'; 
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  bottom: -5px;
+}
+
+
+.checkbox-container {
+  display: flex;
+  align-items: center;  
+  padding-top: 15px;
+}
+
+.checkbox-container span {
+  font-size: 16px;
+}
+
+::selection {
+  background-color: #7ec68f;
+  color: #fff;
+}
+
+.input-error {
+  color: #ba1a1a; // vermelho
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  bottom: 30%;  
+  .error-icon {
+    margin-right: 6px;
+  }
+}
