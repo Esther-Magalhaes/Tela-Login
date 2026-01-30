@@ -5,13 +5,15 @@ import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login-c1',
   standalone: true,
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule, // Adicione aqui
+    ReactiveFormsModule, 
     MatInputModule,
     MatCardModule
   ],
@@ -25,10 +27,14 @@ export class LoginC1Component {
     password: new FormControl('', [Validators.required])
   });
 
-  constructor(private authService: AuthService) {}
+
+  constructor(
+  private authService: AuthService,
+  private router: Router
+) {}
 
 login() {
-    // 1. Verifica se o formulário está preenchido corretamente (validações do TS)
+    // 1. Verifica se o formulário está preenchido corretamente
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
@@ -37,7 +43,7 @@ login() {
 
       // 3. Lógica do alerta
       if (success) {
-        alert('Sucesso! Bem-vinda ao sistema.');
+        this.router.navigate(['/pagina-inicial']);
       } else {
         alert('E-mail ou senha incorretos!');
       }

@@ -1,14 +1,24 @@
 import { Injectable } from '@angular/core';
 
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+  name: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // O seu mini banco de dados manual
-  private USERS_DB = [
-    { id: 1, email: 'gabriel@gmail.com', password: '1234', name: "Gabriel Silva" },
-    { id: 2, email: 'esther@gmail.com', password: '2003', name: "Esther Magalhaes" } 
+
+  // Mini banco de dados
+  private USERS_DB: User[] = [
+    { id: 1, email: 'gabriel@gmail.com', password: '1234', name: 'Gabriel Silva' },
+    { id: 2, email: 'esther@gmail.com', password: '2003', name: 'Esther Magalhaes' }
   ];
+
+private usuarioLogado: any = null; 
 
   login(emailInformado: string, senhaInformada: string): boolean {
     if (!emailInformado || !senhaInformada) return false;
@@ -17,6 +27,14 @@ export class AuthService {
       u.password === senhaInformada.toString().trim()
     );
 
-    return !!user; 
+    if (user) {
+      this.usuarioLogado = user; 
+      return true;
+    }
+    return false;
+  }
+
+  getUsuarioLogado() {
+    return this.usuarioLogado;
   }
 }
